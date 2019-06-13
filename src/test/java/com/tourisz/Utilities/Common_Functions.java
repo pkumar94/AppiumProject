@@ -75,6 +75,10 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 @SuppressWarnings("unused")
 public class Common_Functions {
@@ -289,25 +293,35 @@ private static String getData(Map<String, String> map, String con) {
 	
 	
 }
-public AndroidDriver<MobileElement> setUp() throws MalformedURLException, InterruptedException {
+public AndroidDriver<MobileElement> setUp() throws MalformedURLException, InterruptedException 
+{
+	AppiumServiceBuilder service=new AppiumServiceBuilder();
+	service.usingPort(1234).withIPAddress("127.0.0.1").withLogFile(new File("C:\\Users\\ps11184490\\Downloads\\AppiumProject\\AppiumProject\\log.text")).build();
+	AppiumDriverLocalService server=AppiumDriverLocalService.buildService(service);
+	service.withArgument(GeneralServerFlag.SESSION_OVERRIDE);
+	server.start();
+//	System.out.println("inside the setup method");
 System.out.println("inside the setup method");
 	caps = new DesiredCapabilities();
 	File classpathRoot = new File(System.getProperty("user.dir"));
 	File appDir = new File(classpathRoot, "/Apk");
 	File app = new File(appDir, "sofq");
 
-	caps.setCapability("appiumVersion", "1.12.1");
-	caps.setCapability("deviceName", "Sarkate");
-	caps.setCapability("deviceOrientation", "portrait");
-	caps.setCapability("platformVersion", "8.1");
+	//caps.setCapability("appiumVersion", "1.12.1");
+	caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Sarkate");
+	caps.setCapability(AndroidMobileCapabilityType.AVD, "Sarkate");
+	//caps.setCapability("deviceOrientation", "portrait");
+	//caps.setCapability("platformVersion", "8.1");
 	caps.setCapability("platformName", "Android");
+	//caps.setCapability("automationName", "uiautomator2");
 	caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.softenger.sofq");
 	caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.softenger.sofq.user.view.activity.LoginActivity");
 	// caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+
 	// "/build/Tourisz.apk");
 	caps.setCapability("autoGrantPermissions", "true");
-	driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	caps.setCapability("autoAcceptAlerts", "true");
+	AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(server.getUrl(),caps);
+	driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	return driver;
 
 }

@@ -1,0 +1,6 @@
+2019-06-13 05:18:17:963 [Appium] Welcome to Appium v1.12.1
+2019-06-13 05:18:17:966 [Appium] Non-default server args:
+2019-06-13 05:18:17:968 [Appium]   address: 127.0.0.1
+2019-06-13 05:18:17:969 [Appium]   port: 1234
+2019-06-13 05:18:17:969 [Appium]   logFile: C:\Users\ps11184490\Downloads\AppiumProject\AppiumProject\.\com.decathlon.automation\log.text
+2019-06-13 05:18:18:030 [HTTP] Could not start REST http interface listener. The requested port may already be in use. Please make sure there is no other instance of this server running already.

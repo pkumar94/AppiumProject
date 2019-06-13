@@ -2,23 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default Suite" duration-ms="30268" started-at="2019-05-31T10:20:41Z" finished-at="2019-05-31T10:21:11Z">
+  <suite name="Main Test Suite" duration-ms="69559" started-at="2019-06-13T08:37:32Z" finished-at="2019-06-13T08:38:41Z">
     <groups>
     </groups>
-    <test name="Command line test a87a7a52-9bf4-4262-9d31-8da1642867e0" duration-ms="30268" started-at="2019-05-31T10:20:41Z" finished-at="2019-05-31T10:21:11Z">
-      <class name="com.tourisz.Test.Login_Test">
-        <test-method status="PASS" signature="TC_04_Login(java.lang.String)[pri:0, instance:com.tourisz.Test.Login_Test@757277dc]" name="TC_04_Login" duration-ms="30263" started-at="2019-05-31T15:50:41Z" finished-at="2019-05-31T15:51:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TC_01___Login_Flow]]>
-              </value>
-            </param>
-          </params>
+    <test name="Reliance" duration-ms="69559" started-at="2019-06-13T08:37:32Z" finished-at="2019-06-13T08:38:41Z">
+      <class name="com.tourisz.Utilities.Create_TestNGXML">
+        <test-method status="PASS" signature="createXMLfile()[pri:0, instance:com.tourisz.Utilities.Create_TestNGXML@2ac273d3]" name="createXMLfile" duration-ms="69454" started-at="2019-06-13T08:37:32Z" finished-at="2019-06-13T08:38:41Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_04_Login -->
-      </class> <!-- com.tourisz.Test.Login_Test -->
-    </test> <!-- Command line test a87a7a52-9bf4-4262-9d31-8da1642867e0 -->
-  </suite> <!-- Default Suite -->
+        </test-method> <!-- createXMLfile -->
+      </class> <!-- com.tourisz.Utilities.Create_TestNGXML -->
+    </test> <!-- Reliance -->
+  </suite> <!-- Main Test Suite -->
 </testng-results>
