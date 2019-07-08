@@ -300,20 +300,20 @@ public AndroidDriver<MobileElement> setUp() throws MalformedURLException, Interr
 	AppiumDriverLocalService server=AppiumDriverLocalService.buildService(service);
 	service.withArgument(GeneralServerFlag.SESSION_OVERRIDE);
 	server.start();
-//	System.out.println("inside the setup method");
+ System.out.println("inside the setup method");
 System.out.println("inside the setup method");
 	caps = new DesiredCapabilities();
 	File classpathRoot = new File(System.getProperty("user.dir"));
 	File appDir = new File(classpathRoot, "/Apk");
 	File app = new File(appDir, "sofq");
 
-	caps.setCapability("appiumVersion", "1.13.0");
+	caps.setCapability("appiumVersion", "1.12.0");
 	caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Sarkate");
 	caps.setCapability(AndroidMobileCapabilityType.AVD, "Sarkate");
 	//caps.setCapability("deviceOrientation", "portrait");
 	//caps.setCapability("platformVersion", "8.1");
 	caps.setCapability("platformName", "Android");
-	//caps.setCapability("automationName", "uiautomator2");
+	caps.setCapability("automationName", "uiautomator2");
 	caps.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.softenger.sofq");
 	caps.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.softenger.sofq.user.view.activity.LoginActivity");
 	// caps.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir")+
