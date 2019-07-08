@@ -321,13 +321,13 @@ System.out.println("inside the setup method");
 	caps.setCapability("autoGrantPermissions", "true");
 	caps.setCapability("autoAcceptAlerts", "true");
 	AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(server.getUrl(),caps);
-	driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
 	return driver;
 
 }
 
 public void waitForElement(AppiumDriver<MobileElement> driver, MobileElement id) {
-	wait = new WebDriverWait(driver, 10);
+	wait = new WebDriverWait(driver, 20);
 	wait.until(ExpectedConditions.elementToBeClickable(id));
 }
 
