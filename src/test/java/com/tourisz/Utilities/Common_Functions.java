@@ -296,7 +296,7 @@ private static String getData(Map<String, String> map, String con) {
 public AndroidDriver<MobileElement> setUp() throws MalformedURLException, InterruptedException 
 {
 	AppiumServiceBuilder service=new AppiumServiceBuilder();
-	service.usingPort(1234).withIPAddress("127.0.0.1").withLogFile(new File("C:\\Users\\ps11184490\\Downloads\\AppiumProject\\AppiumProject\\log.text")).build();
+	service.usingPort(1234).withIPAddress("127.0.0.1").withLogFile(new File(".//log.text")).build();
 	AppiumDriverLocalService server=AppiumDriverLocalService.buildService(service);
 	service.withArgument(GeneralServerFlag.SESSION_OVERRIDE);
 	server.start();
@@ -307,7 +307,7 @@ System.out.println("inside the setup method");
 	File appDir = new File(classpathRoot, "/Apk");
 	File app = new File(appDir, "sofq");
 
-	//caps.setCapability("appiumVersion", "1.12.1");
+	caps.setCapability("appiumVersion", "1.13.0");
 	caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Sarkate");
 	caps.setCapability(AndroidMobileCapabilityType.AVD, "Sarkate");
 	//caps.setCapability("deviceOrientation", "portrait");
